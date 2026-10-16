@@ -1,654 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Jay Sahu's personal portfolio showcasing web development skills and projects.">
-
-    <meta name="theme-color" content="#0b1120">
-
-    <title>Jay Sahu | Web Developer Portfolio</title>
-
-    <style>
-        :root {
-            --bg: #0b1120;
-            --card: #111b2e;
-            --accent: #38bdf8;
-            --text: #f1f5f9;
-            --muted: #a5b4c8;
-            --border: #26354b;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1100px, 90%);
-            margin: auto;
-        }
-
-        /* NAVIGATION */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(11, 17, 32, 0.96);
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav {
-            min-height: 72px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 1.45rem;
-            font-weight: bold;
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            transition: 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 78vh;
-            display: flex;
-            align-items: center;
-            padding: 85px 0;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .eyebrow {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 7vw, 4.8rem);
-            line-height: 1.12;
-            margin: 20px 0;
-        }
-
-        .highlight {
-            color: var(--accent);
-        }
-
-        .hero p {
-            max-width: 680px;
-            color: var(--muted);
-            font-size: 1.1rem;
-            margin-bottom: 28px;
-        }
-
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 24px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 22px;
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #07111f;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
-        }
-
-        /* GENERAL SECTIONS */
-
-        section {
-            padding: 80px 0;
-            scroll-margin-top: 70px;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 2.7rem);
-            margin-bottom: 12px;
-        }
-
-        .section-subtitle {
-            color: var(--muted);
-            margin-bottom: 35px;
-        }
-
-        .accent-line {
-            width: 65px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 5px;
-            margin: 14px 0 24px;
-        }
-
-        /* ABOUT */
-
-        .about-box {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 30px;
-        }
-
-        .about-box p {
-            color: var(--muted);
-            margin-bottom: 14px;
-        }
-
-        /* SKILLS */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .skill-card {
-            padding: 23px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            transition: 0.2s;
-        }
-
-        .skill-card:hover,
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-        }
-
-        .skill-card h3 {
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .skill-card p {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-        }
-
-        .project-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 27px;
-            display: flex;
-            flex-direction: column;
-            transition: 0.2s;
-        }
-
-        .project-number {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            margin: 12px 0;
-        }
-
-        .project-card p {
-            color: var(--muted);
-            margin-bottom: 18px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 22px;
-        }
-
-        .tag {
-            font-size: 0.8rem;
-            background: #1b2b42;
-            color: #bae6fd;
-            border-radius: 5px;
-            padding: 5px 9px;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            margin-top: auto;
-        }
-
-        .project-links a {
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            text-align: center;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 40px 25px;
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            max-width: 600px;
-            margin: 12px auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 25px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 25px 0;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        /* RESPONSIVE DESIGN */
-
-        @media (max-width: 700px) {
-            nav {
-                padding: 15px 0;
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 12px 18px;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 85px 0;
-            }
-
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .about-box,
-            .project-card {
-                padding: 22px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jay Sahu — Computer Science Engineering student, aspiring web developer, and builder of practical technology projects.">
+  <meta name="theme-color" content="#080d19">
+  <title>Jay Sahu | Developer Portfolio</title>
+  <style>
+    :root {
+      --bg: #080d19;
+      --bg-soft: #0d1525;
+      --panel: rgba(17, 27, 46, .78);
+      --panel-solid: #111b2e;
+      --text: #eef5ff;
+      --muted: #a7b6cc;
+      --accent: #55d6ff;
+      --accent-2: #8b7cff;
+      --border: rgba(148, 173, 211, .19);
+      --shadow: 0 22px 70px rgba(0, 0, 0, .25);
+      --radius: 20px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(ellipse at 12% 5%, rgba(85,214,255,.12), transparent 34rem),
+        radial-gradient(ellipse at 90% 30%, rgba(139,124,255,.10), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .18;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    .container { width: min(var(--max), 90%); margin-inline: auto; }
+    .section { padding: 96px 0; }
+    .section-heading { max-width: 720px; margin-bottom: 38px; }
+    .eyebrow { color: var(--accent); font-size: .78rem; letter-spacing: .18em; font-weight: 800; text-transform: uppercase; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -.035em; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 10px; }
+    .section-heading p, .muted { color: var(--muted); }
+    .section-heading p { margin-top: 14px; max-width: 650px; }
+    .gradient-text { background: linear-gradient(100deg, var(--accent), #a6a0ff 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(8,13,25,.82); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-size: 1.08rem; font-weight: 900; letter-spacing: -.04em; white-space: nowrap; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .92rem; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-cta { border: 1px solid var(--border); padding: 9px 15px; border-radius: 999px; }
+    .menu-toggle { display: none; border: 1px solid var(--border); color: var(--text); background: var(--panel-solid); border-radius: 10px; padding: 8px 11px; cursor: pointer; }
+    .hero { min-height: calc(100svh - 76px); display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 54px; padding-top: 70px; padding-bottom: 80px; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; padding: 7px 12px; border: 1px solid var(--border); background: rgba(17,27,46,.62); border-radius: 999px; color: #cbd8eb; font-size: .82rem; margin-bottom: 24px; }
+    .dot { width: 8px; height: 8px; background: #6ee7a8; border-radius: 50%; box-shadow: 0 0 15px rgba(110,231,168,.75); }
+    .hero h1 { font-size: clamp(3rem, 7vw, 5.8rem); line-height: 1.02; margin: 18px 0 22px; }
+    .hero h1 .line { display: block; }
+    .hero-copy { max-width: 660px; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.13rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 12px 19px; border: 1px solid var(--border); border-radius: 12px; font-weight: 750; transition: transform .22s, border-color .22s, background .22s; cursor: pointer; }
+    .btn:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .btn-primary { background: var(--accent); color: #06111c; border-color: var(--accent); box-shadow: 0 8px 30px rgba(85,214,255,.14); }
+    .btn-primary:hover { background: #8ae5ff; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 38px; }
+    .meta-item strong { display: block; font-size: 1.1rem; }
+    .meta-item span { color: var(--muted); font-size: .82rem; }
+    .hero-visual { min-height: 410px; display: grid; place-items: center; position: relative; }
+    .orbit { width: min(100%, 390px); aspect-ratio: 1; position: relative; display: grid; place-items: center; }
+    .orbit::before, .orbit::after { content: ""; position: absolute; border: 1px solid rgba(85,214,255,.24); border-radius: 50%; inset: 5%; animation: spin 28s linear infinite; }
+    .orbit::after { inset: 17%; border-color: rgba(139,124,255,.35); animation-direction: reverse; animation-duration: 22s; }
+    .orbit-ring { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(255,255,255,.12); }
+    .orbit-ring::before, .orbit-ring::after { content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 20px var(--accent); top: 14%; left: 17%; }
+    .orbit-ring::after { top: auto; left: auto; bottom: 15%; right: 15%; background: var(--accent-2); box-shadow: 0 0 20px var(--accent-2); }
+    .profile-card { position: relative; z-index: 2; width: 67%; padding: 28px 22px; text-align: center; border: 1px solid rgba(150,190,235,.28); background: linear-gradient(145deg, rgba(23,38,63,.94), rgba(11,18,32,.94)); border-radius: 24px; box-shadow: var(--shadow); }
+    .avatar { width: 88px; height: 88px; margin: 0 auto 17px; display: grid; place-items: center; border-radius: 24px; font-size: 2rem; font-weight: 900; color: #06111c; background: linear-gradient(135deg, var(--accent), #b4a8ff); box-shadow: 0 10px 35px rgba(85,214,255,.18); }
+    .profile-card h3 { font-size: 1.25rem; }
+    .profile-card p { color: var(--muted); font-size: .88rem; margin-top: 7px; }
+    .mini-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .mini-tags span, .tag { border: 1px solid var(--border); border-radius: 999px; padding: 5px 10px; font-size: .74rem; color: #c8eaff; background: rgba(85,214,255,.06); }
+    .floating-chip { position: absolute; z-index: 3; background: #111b2e; border: 1px solid var(--border); border-radius: 12px; padding: 10px 13px; color: #dce9fa; font-size: .8rem; box-shadow: var(--shadow); }
+    .chip-one { top: 13%; right: -1%; } .chip-two { bottom: 13%; left: -2%; }
+    .panel { border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .about-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 24px; align-items: stretch; }
+    .about-main { padding: 30px; }
+    .about-main p { color: var(--muted); margin-top: 14px; }
+    .about-main p:first-of-type { margin-top: 0; }
+    .about-facts { padding: 26px; display: grid; gap: 13px; }
+    .fact { padding: 17px; border: 1px solid var(--border); border-radius: 14px; background: rgba(7,14,27,.35); }
+    .fact strong { display: block; margin-bottom: 3px; }
+    .fact span { color: var(--muted); font-size: .9rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .skill-card { padding: 23px; transition: transform .2s, border-color .2s; }
+    .skill-card:hover, .project-card:hover { transform: translateY(-5px); border-color: rgba(85,214,255,.58); }
+    .skill-icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 13px; background: rgba(85,214,255,.10); color: var(--accent); font-size: 1.15rem; font-weight: 900; margin-bottom: 16px; }
+    .skill-card h3 { font-size: 1.05rem; margin-bottom: 8px; letter-spacing: -.01em; }
+    .skill-card p { color: var(--muted); font-size: .9rem; }
+    .skill-level { height: 5px; border-radius: 10px; background: rgba(255,255,255,.08); margin-top: 18px; overflow: hidden; }
+    .skill-level span { display: block; height: 100%; width: var(--level); background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: inherit; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .project-card { padding: 27px; display: flex; flex-direction: column; min-height: 340px; transition: transform .2s, border-color .2s; }
+    .project-top { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 22px; }
+    .project-icon { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 15px; color: var(--accent); background: rgba(85,214,255,.09); border: 1px solid var(--border); font-size: 1.4rem; }
+    .project-status { color: #b7c6da; font-size: .76rem; border: 1px solid var(--border); border-radius: 999px; padding: 5px 9px; }
+    .project-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+    .project-card p { color: var(--muted); font-size: .95rem; margin-bottom: 19px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 23px; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 17px; margin-top: auto; }
+    .text-link { color: var(--accent); font-weight: 800; font-size: .9rem; }
+    .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .journey { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .journey-card { padding: 26px; }
+    .journey-card h3 { font-size: 1.15rem; margin-bottom: 17px; }
+    .timeline { border-left: 1px solid rgba(85,214,255,.35); margin-left: 7px; padding-left: 22px; display: grid; gap: 20px; }
+    .timeline-item { position: relative; }
+    .timeline-item::before { content: ""; position: absolute; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; left: -27px; top: 8px; box-shadow: 0 0 13px rgba(85,214,255,.5); }
+    .timeline-item strong { display: block; }
+    .timeline-item p { color: var(--muted); font-size: .9rem; margin-top: 4px; }
+    .journey-list { list-style: none; display: grid; gap: 12px; }
+    .journey-list li { color: var(--muted); display: flex; gap: 10px; }
+    .journey-list li::before { content: "↗"; color: var(--accent); font-weight: 900; }
+    .contact-panel { padding: clamp(28px, 6vw, 55px); text-align: center; position: relative; overflow: hidden; }
+    .contact-panel::before { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: rgba(85,214,255,.08); filter: blur(25px); top: -160px; left: calc(50% - 130px); }
+    .contact-panel h2, .contact-panel p, .contact-panel .hero-actions { position: relative; }
+    .contact-panel p { max-width: 620px; color: var(--muted); margin: 15px auto 0; }
+    .contact-panel .hero-actions { justify-content: center; }
+    footer { border-top: 1px solid var(--border); padding: 24px 0; color: var(--muted); font-size: .86rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
+    .back-top { color: var(--accent); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; gap: 15px; padding-top: 75px; }
+      .hero-visual { min-height: 340px; }
+      .orbit { width: min(82vw, 340px); }
+      .about-grid, .journey { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .section { padding: 70px 0; }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 20px 5%; background: rgba(8,13,25,.98); border-bottom: 1px solid var(--border); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 12px 0; }
+      .nav-cta { border: 0; padding: 12px 0; }
+      .hero { min-height: auto; padding-top: 60px; }
+      .hero h1 { font-size: clamp(2.8rem, 13vw, 4.2rem); }
+      .hero-meta { gap: 18px; }
+      .hero-visual { min-height: 300px; }
+      .profile-card { width: 72%; padding: 22px 14px; }
+      .avatar { width: 72px; height: 72px; border-radius: 20px; }
+      .chip-one { right: -1%; } .chip-two { left: -1%; }
+      .skills-grid, .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: auto; }
+      .about-main, .about-facts, .skill-card, .project-card, .journey-card { padding: 22px; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+  </style>
 </head>
-
 <body>
-
-    <!-- NAVIGATION -->
-
-    <header>
-        <nav class="container">
-            <a class="logo" href="#home">&lt;Jay Sahu /&gt;</a>
-
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-
-        <!-- HOME -->
-
-        <section class="hero container" id="home">
-            <div class="hero-content">
-
-                <div class="eyebrow">Welcome to my portfolio</div>
-
-                <h1>
-                    Hi, I'm <span class="highlight">Jay Sahu</span><br>
-                    Aspiring Web Developer
-                </h1>
-
-                <p>
-                    I'm a Computer Science Engineering student learning
-                    web development and building practical projects to
-                    solve real-world problems. I enjoy exploring technology,
-                    learning new skills, and turning ideas into useful
-                    digital experiences.
-                </p>
-
-                <div class="buttons">
-                    <a class="btn btn-primary" href="#projects">
-                        Explore My Projects
-                    </a>
-
-                    <a class="btn" href="#contact">
-                        Contact Me
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ABOUT -->
-
-        <section id="about">
-            <div class="container">
-
-                <h2 class="section-title">About Me</h2>
-                <div class="accent-line"></div>
-
-                <div class="about-box">
-                    <p>
-                        Hello! I'm Jay Sahu, a Computer Science Engineering
-                        student interested in web development and practical
-                        technology projects.
-                    </p>
-
-                    <p>
-                        I am developing my skills in creating responsive
-                        websites, organizing code with GitHub, and building
-                        projects that address real-world challenges.
-                    </p>
-
-                    <p>
-                        One project I have worked on is an AI-powered
-                        Search and Rescue Command Center prototype. It
-                        demonstrates a simulated drone mission, detection
-                        alerts, and a command-center dashboard.
-                    </p>
-
-                    <p>
-                        My current goal is to strengthen my development
-                        fundamentals, build more projects, and learn from
-                        technology communities and bootcamps.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-
-        <section id="skills">
-            <div class="container">
-
-                <h2 class="section-title">Technical Skills</h2>
-
-                <p class="section-subtitle">
-                    Technologies and tools I am learning and using.
-                </p>
-
-                <div class="skills-grid">
-
-                    <article class="skill-card">
-                        <h3>HTML</h3>
-                        <p>
-                            Structuring web pages using HTML elements
-                            and semantic markup.
-                        </p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>CSS</h3>
-                        <p>
-                            Learning layouts, styling, responsive design,
-                            and modern website interfaces.
-                        </p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>JavaScript</h3>
-                        <p>
-                            A skill to develop next for interactive
-                            websites and dynamic functionality.
-                        </p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>Git & GitHub</h3>
-                        <p>
-                            Managing project files, saving code changes,
-                            and publishing websites with GitHub Pages.
-                        </p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>Python</h3>
-                        <p>
-                            An area of interest for programming,
-                            automation, and future AI projects.
-                        </p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>Problem Solving</h3>
-                        <p>
-                            Exploring practical problems and developing
-                            technology-based project ideas.
-                        </p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-
-        <section id="projects">
-            <div class="container">
-
-                <h2 class="section-title">My Projects</h2>
-
-                <p class="section-subtitle">
-                    Projects and practical work.
-                </p>
-
-                <div class="projects-grid">
-
-                    <article class="project-card">
-
-                        <div class="project-number">PROJECT 01</div>
-
-                        <h3>AI SAR Command Center</h3>
-
-                        <p>
-                            A search-and-rescue command-center prototype
-                            designed to demonstrate a simulated drone
-                            mission, mission status, map-based monitoring,
-                            and AI detection alerts for disaster response.
-                        </p>
-
-                        <div class="tags">
-                            <span class="tag">Dashboard UI</span>
-                            <span class="tag">AI Concept</span>
-                            <span class="tag">Search & Rescue</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/jaysahu57008/AI-SAR-Command-Center"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                View Source ↗
-                            </a>
-                        </div>
-
-                    </article>
-
-                    <article class="project-card">
-
-                        <div class="project-number">PROJECT 02</div>
-
-                        <h3>Personal Portfolio Website</h3>
-
-                        <p>
-                            A personal website created to introduce
-                            myself, present my skills and projects,
-                            and provide links to my professional profiles.
-                        </p>
-
-                        <div class="tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">GitHub Pages</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/jaysahu57008/my-portfolio"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                View Source ↗
-                            </a>
-
-                            <a href="https://jaysahu57008.github.io/my-portfolio/"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                Live Website ↗
-                            </a>
-                        </div>
-
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-
-        <section id="contact">
-            <div class="container">
-
-                <div class="contact-box">
-
-                    <h2 class="section-title">Let's Connect</h2>
-
-                    <p>
-                        I'm interested in learning, collaborating on
-                        projects, and connecting with people who are
-                        passionate about technology and web development.
-                    </p>
-
-                    <div class="contact-links">
-
-                        <a class="btn btn-primary"
-                           href="https://github.com/jaysahu57008"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            GitHub Profile ↗
-                        </a>
-
-                        <!-- Replace this with your real LinkedIn profile -->
-                        <a class="btn"
-                           href="https://www.linkedin.com/"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            LinkedIn ↗
-                        </a>
-
-                        <!-- Replace with your real email address -->
-                        <a class="btn"
-                           href="mailto:YOUR_EMAIL@example.com">
-                            Email Me
-                        </a>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-
-    <footer>
-        <div class="container">
-            <p>
-                &copy; <span id="year"></span> Jay Sahu.
-                Built with HTML and CSS.
-            </p>
+  <header class="topbar">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="#home" aria-label="Jay Sahu home">&lt;<span>Jay Sahu</span> /&gt;</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰ Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a class="nav-cta" href="#contact">Let's Connect ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <div class="availability"><span class="dot"></span> CSE Student · Learning by Building</div>
+        <p class="eyebrow">Welcome to my digital space</p>
+        <h1>Hi, I'm Jay.<span class="line gradient-text">I build for the web.</span></h1>
+        <p class="hero-copy">I'm a Computer Science Engineering student and aspiring web developer who enjoys turning ideas into useful digital experiences. I’m learning, experimenting, and building projects around real-world problems.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Explore Projects <span aria-hidden="true">↘</span></a>
+          <a class="btn" href="#contact">Contact Me <span aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://github.com/jaysahu57008" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
         </div>
-    </footer>
+        <div class="hero-meta">
+          <div class="meta-item"><strong>Build</strong><span>Practical projects</span></div>
+          <div class="meta-item"><strong>Learn</strong><span>One skill at a time</span></div>
+          <div class="meta-item"><strong>Improve</strong><span>Through feedback</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Developer profile illustration">
+        <div class="orbit">
+          <div class="orbit-ring"></div>
+          <div class="profile-card">
+            <div class="avatar">JS</div>
+            <h3>Jay Sahu</h3>
+            <p>Computer Science Engineering Student</p>
+            <div class="mini-tags"><span>Web Development</span><span>Problem Solving</span><span>Technology</span></div>
+          </div>
+          <div class="floating-chip chip-one">⌘ Building ideas</div>
+          <div class="floating-chip chip-two">✦ Curious by nature</div>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
-    </script>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">A little about me</p>
+          <h2>Curious mind. <span class="gradient-text">Builder mindset.</span></h2>
+          <p>I’m at the beginning of my development journey, focused on learning fundamentals and applying them to meaningful projects.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel about-main reveal">
+            <p>Hey, I'm Jay Sahu, a Computer Science Engineering student interested in web development, emerging technology, and solving practical problems with software.</p>
+            <p>I’m building my foundation in HTML and CSS, learning to manage code with GitHub, and working toward stronger JavaScript and programming skills. I value clear interfaces, teamwork, experimentation, and learning by doing.</p>
+            <p>One of my key project efforts is an AI-powered Search & Rescue Command Center prototype. It demonstrates how simulated drone telemetry, map monitoring, and detection alerts could support emergency-response teams. It is a demo prototype, not a live hardware-connected system.</p>
+          </article>
+          <aside class="panel about-facts reveal">
+            <div class="fact"><strong>🎓 Current focus</strong><span>Computer Science Engineering</span></div>
+            <div class="fact"><strong>💻 Development</strong><span>Building responsive web interfaces</span></div>
+            <div class="fact"><strong>🧠 Interests</strong><span>AI concepts, problem solving, and practical technology</span></div>
+            <div class="fact"><strong>🤝 Open to</strong><span>Learning opportunities and collaborative projects</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Tools in my toolbox</p>
+          <h2>Skills I'm <span class="gradient-text">developing.</span></h2>
+          <p>A snapshot of my current learning areas. These are learning-focused descriptions, not claims of expert-level proficiency.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="panel skill-card reveal"><div class="skill-icon">⌘</div><h3>HTML</h3><p>Structuring web pages with clear, semantic markup.</p><div class="skill-level"><span style="--level:78%"></span></div></article>
+          <article class="panel skill-card reveal"><div class="skill-icon">✳</div><h3>CSS</h3><p>Layouts, visual styling, responsive design, and interface polish.</p><div class="skill-level"><span style="--level:68%"></span></div></article>
+          <article class="panel skill-card reveal"><div class="skill-icon">JS</div><h3>JavaScript</h3><p>Learning the foundations for interactive and dynamic websites.</p><div class="skill-level"><span style="--level:35%"></span></div></article>
+          <article class="panel skill-card reveal"><div class="skill-icon">⑂</div><h3>Git & GitHub</h3><p>Version control basics, commits, repositories, and GitHub Pages.</p><div class="skill-level"><span style="--level:62%"></span></div></article>
+          <article class="panel skill-card reveal"><div class="skill-icon">Py</div><h3>Python</h3><p>Programming fundamentals and future automation/AI applications.</p><div class="skill-level"><span style="--level:35%"></span></div></article>
+          <article class="panel skill-card reveal"><div class="skill-icon">◎</div><h3>Problem Solving</h3><p>Breaking down real-world challenges into practical project ideas.</p><div class="skill-level"><span style="--level:60%"></span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected work</p>
+          <h2>Projects with a <span class="gradient-text">purpose.</span></h2>
+          <p>Some of the work I’m building and improving as I grow as a developer.</p>
+        </div>
+        <div class="project-grid">
+          <article class="panel project-card reveal">
+            <div class="project-top"><div class="project-icon">🚁</div><span class="project-status">Demo prototype</span></div>
+            <h3>AI SAR Command Center</h3>
+            <p>A search-and-rescue command-center prototype that demonstrates a simulated drone mission, mission status, map-based monitoring, and AI-style detection alerts for disaster response. No live hardware connection is claimed.</p>
+            <div class="tags"><span class="tag">Dashboard UI</span><span class="tag">Rescue Tech</span><span class="tag">Simulation</span><span class="tag">AI Concept</span></div>
+            <div class="project-links"><a class="text-link" href="https://github.com/jaysahu57008/AI-SAR-Command-Center" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a></div>
+          </article>
+          <article class="panel project-card reveal">
+            <div class="project-top"><div class="project-icon">✦</div><span class="project-status">Live website</span></div>
+            <h3>Personal Portfolio</h3>
+            <p>A responsive portfolio website to introduce myself, share my skills and project work, and make it easier for people to connect with me professionally.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive UI</span><span class="tag">GitHub Pages</span></div>
+            <div class="project-links">
+              <a class="text-link" href="https://github.com/jaysahu57008/my-portfolio" target="_blank" rel="noopener noreferrer">View source ↗</a>
+              <a class="text-link" href="https://jaysahu57008.github.io/my-portfolio/" target="_blank" rel="noopener noreferrer">Visit live site ↗</a>
+            </div>
+          </article>
+          <article class="panel project-card reveal">
+            <div class="project-top"><div class="project-icon">🛡️</div><span class="project-status">Concept exploration</span></div>
+            <h3>Cybersecurity & Blockchain Ideas</h3>
+            <p>Exploring ways software, cybersecurity principles, and blockchain-based verification might help address practical trust and security problems.</p>
+            <div class="tags"><span class="tag">Research</span><span class="tag">Cybersecurity</span><span class="tag">Blockchain</span></div>
+            <div class="project-links"><a class="text-link" href="#contact">Discuss an idea ↗</a></div>
+          </article>
+          <article class="panel project-card reveal">
+            <div class="project-top"><div class="project-icon">⌘</div><span class="project-status">Ongoing learning</span></div>
+            <h3>Web Development Practice</h3>
+            <p>Small experiments and improvements focused on semantic HTML, clean CSS, accessible navigation, responsive layouts, and publishing with GitHub Pages.</p>
+            <div class="tags"><span class="tag">Frontend</span><span class="tag">Accessibility</span><span class="tag">Git</span></div>
+            <div class="project-links"><a class="text-link" href="https://github.com/jaysahu57008" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Progress, not perfection</p>
+          <h2>My learning <span class="gradient-text">journey.</span></h2>
+          <p>I’m focused on building a strong foundation and improving through hands-on work.</p>
+        </div>
+        <div class="journey">
+          <article class="panel journey-card reveal">
+            <h3>What I'm working on</h3>
+            <div class="timeline">
+              <div class="timeline-item"><strong>Frontend fundamentals</strong><p>Improving HTML structure, CSS layouts, responsive behaviour, and usability.</p></div>
+              <div class="timeline-item"><strong>Portfolio and project presentation</strong><p>Making projects easier to understand, navigate, and explore online.</p></div>
+              <div class="timeline-item"><strong>Programming growth</strong><p>Strengthening JavaScript and Python fundamentals through practice.</p></div>
+            </div>
+          </article>
+          <article class="panel journey-card reveal">
+            <h3>What matters to me</h3>
+            <ul class="journey-list">
+              <li>Solving meaningful, real-world problems.</li>
+              <li>Being honest about what is built versus what is still a prototype.</li>
+              <li>Learning from teammates, mentors, and feedback.</li>
+              <li>Writing clearer code and creating accessible interfaces.</li>
+              <li>Turning ideas into working demos and improving them iteratively.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="panel contact-panel reveal">
+          <p class="eyebrow">Have an idea?</p>
+          <h2>Let's build something <span class="gradient-text">useful.</span></h2>
+          <p>I'm interested in learning opportunities, thoughtful feedback, and collaborating on projects that use technology to solve practical problems.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/jaysahu57008" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <!-- Replace the LinkedIn URL below with your exact profile URL. -->
+            <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <!-- Replace YOUR_EMAIL@example.com with your real email address. -->
+            <a class="btn" href="mailto:YOUR_EMAIL@example.com?subject=Portfolio%20contact">Email Me ✉</a>
+          </div>
+          <p style="font-size:.82rem; margin-top:18px;">Tip: add your real LinkedIn profile link and email address before sharing this portfolio widely.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Jay Sahu. Designed and built with HTML, CSS & JavaScript.</p>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      menuToggle.textContent = isOpen ? "✕ Close" : "☰ Menu";
+    });
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰ Menu";
+      });
+    });
+
+    // Reveal sections as they enter the viewport; keep content visible if unsupported.
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add("visible"));
+    }
+
+    // Highlight the current section in the navigation.
+    const sections = document.querySelectorAll("main section[id]");
+    const navAnchors = navLinks.querySelectorAll('a[href^="#"]');
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navAnchors.forEach(anchor => {
+              anchor.classList.toggle("active", anchor.getAttribute("href") === "#" + entry.target.id);
+            });
+          }
+        });
+      }, { rootMargin: "-35% 0px -55% 0px" });
+      sections.forEach(section => sectionObserver.observe(section));
+    }
+  </script>
 </body>
 </html>
